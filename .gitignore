@@ -14,3 +14,5 @@ nb-configuration.xml
 *.jar
 *.war
 *.ear
+IRMS-war/nbproject/private
+IRMS-ejb/nbproject/private
