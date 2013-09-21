@@ -1,0 +1,215 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+        <link href="./resources/css/bootstrap.css" rel="stylesheet" type="text/css" />
+        <link href="./resources/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+        <title>Home_Welcome to Coral Island Resort</title>
+
+        <style>
+            body 
+            {
+                background-image:url('resources/img/background2.png');
+            }
+        </style>
+
+    </h:head>
+
+    <h:body>
+        <div class="container">
+            <div class="navbar navbar-inverse">
+                <div class="navbar-inner">
+                    <!-- Responsive Navbar Part 1: Button for triggering responsive navbar (not covered in tutorial). Include responsive CSS to utilize. -->
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+                    <a class="brand" href="#">Coral Island Resort</a>
+
+                    <!-- Responsive Navbar Part 2: Place all navbar contents you want collapsed withing .navbar-collapse.collapse. -->
+                    <div class="nav-collapse ">
+                        <ul class="nav pull-right">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Places to Stay</a>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
+                                    <li><a href="#">Hard Rock Hotel</a></li>
+                                    <li><a href="#">Hilton Hotel</a></li>
+                                    <li><a href="#">Ilis Hotel</a></li>
+                                    <li><a href="#">Imperial Hotel</a></li>
+                                    <li><a href="#">Golden Sands Hotel</a></li>
+                                    <li><a href="#">Sea Villas</a></li>
+                                </ul>
+                            </li>
+
+
+                            <li><a href="#">Things to Do</a></li>
+                            <li><a href="#">What to Eat</a></li>
+                            <li><a href="#">Meetings and Events</a></li>
+                            <li><a href="#">Promotions</a></li>
+                            <li><a class="dropdown-toggle" data-toggle="dropdown" href="#">Log in</a>
+                                <ul class="dropdown-menu" style="padding: 15px; padding-bottom: 10px;">
+                                    <li>
+                                        <div >
+                                            <h:form> 
+                                                <h:panelGrid columns="3" cellpadding="5">  
+                                                    <h:outputLabel for="email" value="Email:     "/>
+                                                    <h:inputText id="email" value="#{userAccountManagementBean.email}" required="true" requiredMessage="Sorry email is required" validatorMessage="Sorry the email format is not correct"> 
+                                                        <f:validateRegex pattern="^[_A-Za-z0-9-\+]+(\.[_A-Za-z0-9-]+)*@[A-Za-z0-9-]+(\.[A-Za-z0-9]+)*(\.[A-Za-z]{2,})$" />
+                                                    </h:inputText>
+                                                    <p:message for="email" />
+                                                    <h:outputLabel for="password" value="Password: "/>  
+                                                    <h:inputSecret id="password" value="#{userAccountManagementBean.password}"  required="true" requiredMessage="Sorry password is required" validatorMessage="Sorry the password format is not correct"> 
+                                                        <f:validateLength minimum="2" />
+                                                    </h:inputSecret>
+                                                    <p:message for="password" />
+                                                </h:panelGrid>
+                                                <p:captcha label="Captcha" validatorMessage="Sorry validation error" requiredMessage="Captcha is required"/>
+                                               
+                                            </h:form>
+                                            <h:commandButton action="#{userAccountManagementBean.doLogin}" value="Submit" />
+                                            <h:link value="Forget your password?" outcome="password" />
+                                            <br></br>
+                                            <h:link value="Register as a new member" outcome="MemberRegisterPage" />
+                                        </div>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div><!--/.nav-collapse -->
+                </div><!-- /.navbar-inner -->
+            </div><!-- /.navbar -->
+            <br />
+
+        </div><!-- /.container -->
+
+        <div class="container">
+            <div class="row">
+                <div class="span8">
+            <div id="myCarousel" class="carousel slide">
+                    <div class="carousel-inner">
+                        <div class="item active">
+                            <img src="resources/img/wym7.jpg" alt=""/>
+                            <div class="carousel-caption">
+                                <h4>There's no place like home...</h4>
+                                <h4>Expect when you are in Coral Island.</h4>
+                                <p>Enjoy a relaxing stay like no other in our 6 star hotels!</p><br/>
+                                <a class="btn btn-primary" target="_blank" href="#">Learn More!</a>
+                            </div>
+                        </div> 
+                        <div class="item">
+                            <img src="resources/img/wym6.jpg" alt=""/>
+                            <div class="carousel-caption">
+                                <h4>Immerse yourself in a world full of wonders...</h4>
+                                <h4>Right here, right now.</h4>
+                                <p>Experience the skypark dining and many more!</p><br/>
+                                <a class="btn btn-primary" target="_blank" href="#">Learn more</a>
+                            </div>
+
+                        </div>
+                    </div> <!-- /.carousel-inner --> 
+                    <!-- Carousel nav -->
+                    <a class="left carousel-control" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+                    <a class="right carousel-control" href="#myCarousel" data-slide="next">&rsaquo;</a>
+                </div><!-- /.carousel -->
+                </div>
+                
+                <div class="span3">
+                    <h2><font color="white">Welcome to Coral Island Resort!</font></h2>
+                    <p><font color="white">You will never get bored again......</font></p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            
+            <!-- 4 columns of text below the carousel -->
+            <div class="row">
+                <div class="span3">
+                    <a href="#"><h3>Hotels</h3></a>
+                    <img src="resources/img/wym1.jpg" alt=""/>
+                    <p> <font color="white">6 star hotels</font></p>
+                </div><!-- /.span4 -->
+                <div class="span3">
+                    <a href="#"><h3>Attractions</h3></a>
+                    <img src="resources/img/wym8.jpg" alt=""/>
+                    <p> <font color="white">Sea Safari and many more</font></p>
+                </div><!-- /.span4 -->
+                <div class="span3">
+                    <a href="#"><h3>Restaurants</h3></a>
+                    <img src="resources/img/wym4.jpg" alt=""/>
+                    <p><font color="white">Where foodies love to go...</font></p>
+                </div><!-- /.span4 -->
+                <div class="span3">
+                    <a href="#"><h3>Convention Center</h3></a>
+                    <img src="resources/img/wym10.jpg" alt=""/>
+                    <p><font color="white">Make your event even better at our convention center and many other venues!</font></p>
+                </div><!-- /.span4 -->
+            </div><!-- /.row -->
+            
+            <footer>
+                <br/><br/><br/>
+                <p><font color="white">&copy; NUS IS3102 - AY 2012/2013 Sem 2. <br/>Brought to you by IT06</font></p>
+            </footer>
+        </div>
+
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+        <script src="resources/js/bootstrap.min.js"></script>
+        <script>
+            $(document).ready(function() {
+                $('.carousel').carousel();
+
+                $("#submitBtn").click(function(e) {
+                    if ($("#inputName").val().length === 0) {
+                        alert("Please fill in your name");
+                    }
+                    else if ($("#inputEmail").val().length === 0) {
+                        alert("Please enter a valid email address");
+                    }
+                    else if ($("#hideName").is(":hidden")) {
+                        alert("Thank you for trying CIR!");
+                    }
+
+                    else {
+                        var memberName = $('#inputName').text();
+                        var memberEmail = $('#inputEmail').text();
+                        console.log('Member Name is: ' + memberName);
+                        console.log('Member Email is: ' + memberEmail);
+
+                        //hiding sign in.
+                        /*if($('#submitBtn').is(":visible")){
+                         $('#submitBtn').text("Sign in");
+                         $('#submitBtn').hide();
+                         }else{
+                         $('#submitBtn').show();
+                         $('#hideBtn').text("Hide Submit Btn!");
+                         }    */
+
+                        e.stopPropagation();
+                        $('#submitBtn').text("Sign in");
+                        $("#registertab").text("Sign in");
+                        $("#legend").text("Please sign in");
+                        $("#hideName").slideUp();
+                        $("#hideAfterRegister").slideUp();
+                    }
+                });
+                $(function() {
+                    // Setup drop down menu
+                    $('.dropdown-toggle').dropdown();
+
+                    // Fix input element click problem
+                    $('.dropdown input, .dropdown label, .dropdown h:inputText').click(function(e) {
+                        e.stopPropagation();
+                    });
+                });
+            });
+        </script>
+
+    </h:body>
+</html>

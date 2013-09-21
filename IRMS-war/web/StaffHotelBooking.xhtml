@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+
+    <p:growl id="growl" sticky="true" showDetail="true"/>
+
+    <p:wizard flowListener="#{staffHotelBookingManagedBean.searchAvailableRooms}">
+            <p:tab id="tab1" title="CHECK AVAILABILITY">
+                <p:panel id="panel1" header="CHECK AVALABILITY">
+                      <p:panelGrid columns="2">
+                          <h:outputLabel value="Arrival"/><p:calendar mindate="19/9/13" effect="explode" value="#{staffHotelBookingManagedBean.arrivalDate}"/> 
+                          <h:outputLabel value="Departure"/><p:calendar mindate="19/9/13" effect="explode" value="#{staffHotelBookingManagedBean.departureDate}"/> 
+                          <h:outputLabel value="Rooms"/><p:spinner min="0" value="#{staffHotelBookingManagedBean.roomNum}"/> 
+                          <h:outputLabel value="Adults"/><p:spinner min="0"  value="#{staffHotelBookingManagedBean.adultNum}"/>  
+                          <h:outputLabel value="Children"/><p:spinner min="0" value="#{staffHotelBookingManagedBean.childrenNum}"/>
+                        </p:panelGrid>
+                   </p:panel>
+                 </p:tab>
+            <p:tab id="tab2" title="SELECT A ROOM">
+                <p:panel id="panel2" header="SELECT A ROOM">
+                    <h:form>
+    <p:dataTable var="room" value="#{staffHotelBookingManagedBean.list}">
+        <p:column headerText="Hotel">
+            <h:outputText value="#{room.hotelName}" />
+        </p:column>
+
+        <p:column headerText="Room">
+            <h:outputText value="#{room.roomType}" />
+        </p:column>
+
+    </p:dataTable>
+</h:form>
+                </p:panel>
+            </p:tab>
+            <p:tab id="tab3" title="ADD EXTRAS">
+                  Sample Tab 3
+                  <p:outputLabel value="#{staffHotelBookingManagedBean.roomNum}"></p:outputLabel>
+            </p:tab>
+                <p:tab id="tab4" title="INFO AND PAYMENT">
+                  Sample Tab 3</p:tab>
+                <p:tab id="tab5" title="CONFIRM">
+                  Sample Tab 3</p:tab>
+         </p:wizard>
+	
+</h:form>
+                    
+
+    </h:body>
+</html>
+

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Home</title>
+
+    </h:head>
+    <h:body>
+        <p:menubar>
+                <p:menuitem value="Home" url="#" />
+                <p:menuitem value="My profile" url="MemberProfile.xhtml" />
+                <p:menuitem value="My membership" url="#" />
+                <p:menuitem value="My transaction" url="#" />
+        </p:menubar>
+        <p:panel id="panel" header="Room booking">
+            <p:growl id="growl" showDetail="true" sticky="true" />
+            <h:form>
+                <h:outputLabel value="Hotel name"/><p:selectOneButton value="">
+            <f:selectItem itemLabel="Swiss hotel" itemValue="1" />
+            <f:selectItem itemLabel="Festive hotel" itemValue="2" />
+            <f:selectItem itemLabel="Hard rock hotel" itemValue="3" />
+        </p:selectOneButton><br/>
+                <h:outputLabel value="Date"/><br/><p:calendar effect="explode"/>  <br/>
+                <h:outputLabel value="Room type"/><p:selectOneButton value="">
+            <f:selectItem itemLabel="Expensive room" itemValue="1" />
+            <f:selectItem itemLabel="Very expensive room " itemValue="2" />
+            <f:selectItem itemLabel="VERY VERY expensive room" itemValue="3" />
+        </p:selectOneButton><br/>
+        <h:outputLabel value="Number of rooms"/><p:spinner id="spinnerBasic" min="1" value=""/><br/>
+                <h:outputLabel value="Check out"/><h:commandButton action="#" value="Submit" />
+                
+            </h:form>
+            
+        </p:panel>
+    </h:body>
+</html>
+

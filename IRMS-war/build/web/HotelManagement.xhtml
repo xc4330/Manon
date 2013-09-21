@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://java.sun.com/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <br/><br/>
+        <br/><br/>
+
+        <p:commandButton id="basic" value="Create Hotel" onclick="dlg.show();" type="button" />  
+        <h:form id="form">     
+             <p:growl id="growl" showDetail="true" sticky="true" /> 
+            <p:dialog id="dialog" header="Create Hotel" widgetVar="dlg" resizable="false" >                 
+                <h:panelGrid columns="2" cellpadding="5">
+                    <h:outputLabel for="hotelname" value="Hotel Name:     "/> 
+                    <h:inputText value="#{hotelManagementBean.hotelname}"/>                   
+                    <h:outputLabel for="location" value="Location:     "/>
+                    <h:inputText value="#{hotelManagementBean.location}" />                    
+                </h:panelGrid>  
+                <p:commandButton value="Reset" type="reset" />   
+                <p:commandButton value="Save" actionListener="#{hotelManagementBean.createHotel}" onclick="dlg.hide()" oncomplete="dlg.hide();" update="growl" />  
+            </p:dialog>                          
+        </h:form>
+
+    </h:body>
+</html>
+
